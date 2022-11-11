@@ -1,0 +1,312 @@
+lista = []
+lista2 = []
+envio = 10000
+prime = int(input("Hola! ¿Eres usuario Prime?\n1. Si\n2. No"))
+x=0
+
+class carrito():
+  def __str__(self):
+    print("//////////////////////////////////////////////////")
+    print("Producto: Precio:")
+    for i in range(len(lista)):
+      print(lista2[i], lista[i])
+    print("//////////////////////////////////////////////////")
+    total = 0
+    ingreso6 = int(input("¿Desea pagar? \n1. Si\n2. No"))
+    if ingreso6 == 1:
+      print("//////////////////////////////////////////////////")
+      print("Factura")
+      print("Producto: Precio:")
+      for i in range(len(lista)):
+        print(lista2[i], lista[i])
+      for listas in lista:
+        total += listas
+      if prime == 1:
+        descuento = ((total*10)/100)
+        vtotal = (total-descuento)
+      else:
+        vtotal = total+envio
+      print('Total a pagar: ', vtotal)
+      print("//////////////////////////////////////////////////")
+    else:
+      pass
+
+class producto():
+  def __init__(self, nombre, precio, caracteristicas):
+    self.nombre = nombre
+    self.precio = precio
+    self.caracteristicas = caracteristicas
+
+class electronicos(producto):
+  def __init__(self, nombre, precio, caracteristicas, color, categoria, marca):
+    super().__init__(nombre, precio, caracteristicas)
+    self.departamento = 'Electronicos'
+    self.color = color
+    self.categoria = categoria
+    self.marca = marca
+
+  def __str__(self):
+    print("//////////////////////////////////////////////////")
+    print(f'Nombre: {self.nombre}')
+    print(f'Precio: {self.precio}')
+    print(f'Caracteristicas: {self.caracteristicas}')
+    print(f'Departamento: {self.departamento}')
+    print(f'Color: {self.color}')
+    print(f'Categoria: {self.categoria}')
+    print(f'Marca: {self.marca}')
+    print("//////////////////////////////////////////////////")
+
+class moda(producto):
+  def __init__(self, nombre, precio, caracteristicas, color, tipo, talla):
+    super().__init__(nombre, precio, caracteristicas)
+    self.departamento = 'Moda'
+    self.color = color
+    self.tipo = tipo
+    self.talla = talla
+
+  def __str__(self):
+    print("//////////////////////////////////////////////////")
+    print(f'Nombre: {self.nombre}')
+    print(f'Precio: {self.precio}')
+    print(f'Caracteristicas: {self.caracteristicas}')
+    print(f'Departamento: {self.departamento}')
+    print(f'Color: {self.color}')
+    print(f'Categoria: {self.tipo}')
+    print(f'Marca: {self.talla}')
+    print("//////////////////////////////////////////////////")
+
+class peliculas(producto):
+  def __init__(self, nombre, precio, caracteristicas, duracion, categoriapelicula, genero):
+    super().__init__(nombre, precio, caracteristicas)
+    self.departamento = 'Peliculas'
+    self.duracion = duracion
+    self.categoriapelicula = categoriapelicula
+    self.genero = genero
+
+  def __str__(self):
+    print("//////////////////////////////////////////////////")
+    print(f'Nombre: {self.nombre}')
+    print(f'Precio: {self.precio}')
+    print(f'Caracteristicas: {self.caracteristicas}')
+    print(f'Departamento: {self.departamento}')
+    print(f'Color: {self.duracion}')
+    print(f'Categoria: {self.categoriapelicula}')
+    print(f'Marca: {self.genero}')
+    print("//////////////////////////////////////////////////")
+
+#Productos electronicos
+computadora = electronicos('Computadora', 1000000, 'gaming', 'negro', 'computadoras', 'HP')
+lavadora = electronicos('Lavadora', 500000, 'grande y nueva', 'gris', 'electrodomesticos', 'Kalley')
+nevera = electronicos('nevera', 600000, 'con mucho espacio', 'gris', 'electrodomesticos', 'Kalley')
+secadora = electronicos('secadora', 400000, 'seca ultra rapido', 'gris','electrodomesticos', 'Kalley')
+playstation5 = electronicos('Play Station 5', 1500000, 'Ultra gaming te corre todo a 4k full hd 1080p', 'blanco', 'videojuegos', 'Sony')
+
+#Productos Moda
+camisa_hombre = moda('Camisa de hombre', 10000, 'Bonita', 'Rojo', 'Prenda de vestir', 'S')
+camisa_mujer = moda('Camisa de mujer', 1200, 'Bonita y comoda', 'Azul', 'Prenda de vestir','M')
+zapatosh = moda('Zapatos para hombre', 7000, 'Comodos', 'Marrones', 'Calzado', '40')
+zapatosj = moda('Zapatos para mujer', 7000, 'Comodos y bonitos', 'Blancos', 'Calzado', '38')
+pantalones = moda('Pantalones', 16000, 'Comodos y bonitos', 'Azul', 'Prendas de vestir', 'Universal jeje')
+
+#Productos peliculas
+Avatar = peliculas('Avatar', 2000, 'Gran pelicula B)', '2 Horas', '+12', 'Ciencia ficcion')
+Interestelar = peliculas("Interestelar", 2000, 'Pelicula del espacio :o', '3 Horas', '+14', 'Ciencia ficcion')
+Minions = peliculas("The Minions", 2000, 'Los minions obvio todos la conocen', '2 Horas', 'Para toda la familia', 'Animada e infantil')
+Fast = peliculas('Rapidos y Furiosos', 2000, 'Carreras de autos a toda velocidad', '2 Horas', '+17', 'Ciencia ficcion')
+Fantasma = peliculas('Donde esta el fantasma', 2000, 'Un negro se asusta con su esposa poseia', '2 Horas', '+18', 'Comedia')
+
+
+
+
+def compraElectrodomesticos(entrada):
+  if entrada == 1:
+    print(computadora.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = computadora.precio
+    agregar2 = computadora.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 2:
+    print(lavadora.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = lavadora.precio
+    agregar2 = lavadora.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 3:
+    print(nevera.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = nevera.precio
+    agregar2 = nevera.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 4:
+    print(secadora.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = secadora.precio
+    agregar2 = secadora.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 5:
+    print(playstation5.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = playstation5.precio
+    agregar2 = playstation5.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada >=6:
+    pass
+
+def compraModa(entrada):
+  if entrada == 1:
+    print(camisa_hombre.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = camisa_hombre.precio
+    agregar2 = camisa_hombre.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 2:
+    print(camisa_mujer.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = camisa_mujer.precio
+    agregar2 = camisa_mujer.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 3:
+    print(zapatosh.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = zapatosh.precio
+    agregar2 = zapatosh.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 4:
+    print(zapatosj.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = zapatosj.precio
+    agregar2 = zapatosj.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 5:
+    print(pantalones.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = pantalones.precio
+    agregar2 = pantalones.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada >=6:
+    pass
+
+
+def compraPelicula(entrada):
+  if entrada == 1:
+    print(Avatar.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = Avatar.precio
+    agregar2 = Avatar.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 2:
+    print(Interestelar.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = Interestelar.precio
+    agregar2 = Interestelar.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 3:
+    print(Minions.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = Minions.precio
+    agregar2 = Minions.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 4:
+    print(Fast.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = Fast.precio
+    agregar2 = Fast.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada == 5:
+    print(Fantasma.__str__())
+    z = int(input("1. Comprar\n2. Salir\nIngrese una opcion"))
+    agregar = Fantasma.precio
+    agregar2 = Fantasma.nombre
+    if z == 1:
+      lista.append(agregar)
+      lista2.append(agregar2)
+    else:
+      pass
+  elif entrada >=6:
+    pass
+
+
+while x == 0:
+  print("//////////////////////////////////////////////////")
+  print("1. Productos Electronicos\n2. Productos de Moda\n3. Peliculas \n4. Carrito\n5. Salir")
+  print("//////////////////////////////////////////////////")
+
+  entrada1 = int(input("Ingrese una opcion"))
+  if entrada1 == 1:
+    print("//////////////////////////////////////////////////")
+    print("Productos electronicos\n1. Computadora\n2. Lavadora\n3. Nevera\n4. Secadora\n5. Play Station 5\n6. Atras.")
+    entrada2 = int(input("Ingrese una opcion"))
+    print("//////////////////////////////////////////////////")
+    compraElectrodomesticos(entrada2)
+  elif entrada1 == 2:
+    print("Productos de Moda\n1. Camisa de Hombre\n2. Camisa de Mujer\n3. Zapatos de hombre\n4. Zapatos de mujer\n5. Pantalones\n6. Atras")
+    entrada3 = int(input("Ingrese una opcion"))
+    print("//////////////////////////////////////////////////")
+    compraModa(entrada3)
+  elif entrada1 == 3:
+    print("//////////////////////////////////////////////////")
+    print("Peliculas\n1. Avatar\n2. Interestelar\n3. The Minions\n4. Rapidos y Furiosos\n5. Donde esta el fantasma\n6. Atras")
+    entrada4 = int(input("Ingrese una opcion"))
+    print("//////////////////////////////////////////////////")
+    compraPelicula(entrada4)
+  elif entrada1 == 4:
+    carrito1 = carrito()
+    print(carrito1.__str__())
+  elif entrada1 == 5:
+    x+=1
